@@ -1,0 +1,205 @@
+.Combatant {
+    width: 67px;
+    height: 14px;
+    background: url("/images/ui/display.png") no-repeat no-repeat;
+    position: absolute;
+}
+
+
+/* to scale display hud */
+
+.Battle .Combatant {
+    transform: scale(2);
+    /* make it so its fades in and out */
+    transition: opacity 0.4s;
+}
+
+
+/* to hide the hud of the non active team */
+
+.Battle .Combatant[data-active="false"] {
+    opacity: 0;
+}
+
+
+/* to show the hud of active team */
+
+.Battle .Combatant[data-active="true"] {
+    opacity: 1;
+}
+
+
+/* for player's dispay */
+
+.Combatant[data-team="player"] {
+    left: 46px;
+    top: 70px;
+}
+
+
+/* for enemy's display*/
+
+.Combatant[data-team="enemy"] {
+    top: 28px;
+    right: 77px;
+}
+
+.Combatant_character_corp {
+    position: absolute;
+    bottom: 1px;
+    left: 3px;
+    width: 22px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.Combatant_character {
+    display: block;
+    position: absolute;
+    left: -11px;
+    bottom: -7px;
+}
+
+.Battle .Combatant_character_corp {
+    display: none;
+}
+
+
+/* for pizzas name */
+
+.Combatant_name {
+    position: absolute;
+    left: -2px;
+    top: -8px;
+    /* nowrap is used if the name is very long */
+    white-space: nowrap;
+    background: var(--menu-font-color);
+    color: white;
+    font-size: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin: 0;
+}
+
+
+/* types of pizza */
+
+.Combatant_type {
+    position: absolute;
+    left: 3px;
+    top: -2px;
+    width: 16px;
+    height: 16px;
+}
+
+
+/* invisible container for life bar */
+
+.Combatant_life-container {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+    width: 26px;
+    height: 3px;
+}
+
+
+/* speed of how fast the hp decreses */
+
+.Combatant_life-container>rect {
+    transition: width 0.2s;
+}
+
+
+/* for exp container */
+
+.Combatant_xp-container {
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    width: 26px;
+    height: 2px;
+}
+
+
+/* for level */
+
+.Combatant_level {
+    position: absolute;
+    font-size: 12px;
+    right: 2px;
+    top: -1px;
+    width: 17px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8c593;
+    border: 1px solid #a48465;
+    margin: 0;
+}
+
+
+/* for status effect*/
+
+.Combatant_status {
+    position: absolute;
+    font-size: 5px;
+    left: 47px;
+    bottom: -3px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background: black;
+    color: white;
+    margin: 0;
+}
+
+.Combatant_status[data-status="saucy"] {
+    color: red;
+}
+
+.Combatant_status[data-status="drop"] {
+    background: purple;
+}
+
+.Pizza {
+    position: absolute;
+    transform: scale(2);
+    /* animate when transform and scale changea */
+    transition: opacity 0.4s ,transform 0.4s;
+    background: url(/images/characters/pizzas/pizza-shadow.png) no-repeat no-repeat;
+}
+
+
+/* placement for players pizza */
+
+.Pizza[data-team="player"] {
+    bottom: 73px;
+    left: 51px;
+}
+
+
+/* placement for enemys pizza */
+
+.Pizza[data-team="enemy"] {
+    top: 47px;
+    right: 100px;
+}
+
+
+/* hiding non active pizza */
+
+.Pizza[data-active="false"] {
+    opacity: 0;
+    /* to make it seem like going down */
+    transform: translate3d(0,16px,0) scale(2);
+}
+
+
+/* showing active pizza */
+
+.Pizza[data-active="true"] {
+    opacity: 1;
+    /* comming up to default position */
+    transform: translate3d(0,0,0) scale(2);
+}

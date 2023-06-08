@@ -1,0 +1,130 @@
+.Battle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* for battle background */
+    background-image: url(/images/maps/StreetBattle.png);
+    /* to fill the canvas */
+    background-size: cover;
+    image-rendering: pixelated;
+}
+
+
+/* scalling the images */
+
+.Battle_hero,
+.Battle_enemy {
+    position: absolute;
+    transform: scale(2);
+    /* croping the images  */
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    /* shadows for characters */
+    background: url(/images/characters/shadow.png) no-repeat no-repeat;
+}
+
+.Battle_hero img,
+.Battle_enemy img {
+    pointer-events: none;
+}
+
+
+/* hero placement on the map */
+
+.Battle_hero {
+    bottom: 57px;
+    left: 1px;
+}
+
+
+/* for hero to face up */
+
+.Battle_hero img {
+    transform: translateY(-64px);
+}
+
+
+/* enemy placement on the map */
+
+.Battle_enemy {
+    top: 42px;
+    right: -1px;
+}
+
+
+/* animation */
+@keyframes battle-damage-blink {
+    to{
+        visibility: hidden;
+    }
+}
+
+.battle-damage-blink{
+    animation: battle-damage-blink 0.3s steps(2,start) infinite; /*steps to tougle the visibility on and off*/
+}
+
+
+/* animation for player attacking  */
+@keyframes battle-spin-right{
+    0%{transform: translate3d(0,0,0) rotate(0deg) scale(2)}
+    25%{transform: translate3d(150px,-25px,0) rotate(45deg) scale(2)}
+    100%{transform: translate3d(0,0,0) rotate(0deg) scale(2)}
+}
+
+/* speed of the animation */
+.battle-spin-right{
+    animation: battle-spin-right 0.8s;
+}
+
+/* animation for player atacking */
+@keyframes battle-spin-left{
+    0%{transform: translate3d(0,0,0) rotate(0deg) scale(2)}
+    25%{transform: translate3d(-130px,45px,0) rotate(45deg) scale(2)}
+    100%{transform: translate3d(0,0,0) rotate(0deg) scale(2)}
+}
+
+/* speed of the animation */
+.battle-spin-left{
+    animation: battle-spin-left 0.8s;
+}
+
+/* container for the glob */
+.glob-orb{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+/* traveling for right to left */
+@keyframes battle-glob-right{
+    0%{transform: translate3d(0,0,0) scale(0.5); opacity: 1;}
+    50%{transform: translate3d(10px,-80px,0) scale(1); opacity: 1;}
+    80%{transform: translate3d(149px,-47px,0) scale(1); opacity: 1;}
+    100%{transform: translate3d(149px,-47px,0) scale(3); opacity: 0;}
+    
+}
+
+/* starting positiong and speed */
+.Battle-glob-right{
+    left:70px;
+    top: 109px;
+    animation: battle-glob-right 1s forwards;
+}
+
+/* traveling for left to right */
+@keyframes Battle-glob-left{
+    0%{transform: translate3d(0,0,0) scale(0.5); opacity: 1;}
+    50%{transform: translate3d(-10px,-50px,0) scale(1); opacity: 1;}
+    80%{transform: translate3d(-175px,47px,0) scale(1); opacity: 1;}
+    100%{transform: translate3d(-175px,47px,0) scale(3); opacity: 0;}
+}
+
+/* starting positiong and speed */
+.Battle-glob-left{
+    left:227px;
+    top:56px;
+    animation: battle-glob-left 1s forwards;
+}
